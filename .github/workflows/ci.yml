@@ -17,6 +17,8 @@ env:
   repository: ${{ github.repository }}-model
   image-tag: latest
 
+concurrency: CI
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -52,6 +54,8 @@ jobs:
           tags: ${{ env.repository }}:${{ env.image-tag }}
           cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}
           cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
 
       - name: debug
         run: |
