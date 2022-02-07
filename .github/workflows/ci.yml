@@ -36,6 +36,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: debug
+        run: |
+          echo docker run --rm ${{ env.repository }}:${{ env.image-tag }}
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
