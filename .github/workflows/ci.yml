@@ -57,4 +57,5 @@ jobs:
 
       - name: debug
         run: |
+          docker pull ${{ env.repository }}:${{ env.image-tag }}
           docker run --rm ${{ env.repository }}:${{ env.image-tag }} echo jee
