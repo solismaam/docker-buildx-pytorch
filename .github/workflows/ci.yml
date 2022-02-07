@@ -52,8 +52,8 @@ jobs:
           context: .
           push: true
           tags: ${{ env.repository }}:${{ env.image-tag }}
-          cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}
-          cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}
+          cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
+          cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
 
       - name: debug
         run: |
