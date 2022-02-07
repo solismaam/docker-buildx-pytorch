@@ -67,4 +67,5 @@ jobs:
         run: |
           docker images
           docker pull ${{ env.repository }}:${{ env.image-tag }}
+          docker images
           docker run --rm ${{ env.repository }}:${{ env.image-tag }} echo jee
