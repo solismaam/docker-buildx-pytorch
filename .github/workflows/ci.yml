@@ -53,7 +53,7 @@ jobs:
           push: true
           tags: ${{ env.repository }}:${{ env.image-tag }}
           cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
-          cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
+          cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache,mode=max
 
       - name: Build
         uses: docker/build-push-action@v2
