@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  repository: ${{ github.repository }}-model
+  repository: ghcr.io/${{ github.repository }}-model
   image-tag: latest
 
 concurrency: CI
@@ -54,8 +54,6 @@ jobs:
           tags: ${{ env.repository }}:${{ env.image-tag }}
           cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}
           cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
 
       - name: debug
         run: |
