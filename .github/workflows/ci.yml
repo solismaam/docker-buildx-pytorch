@@ -55,14 +55,6 @@ jobs:
           cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
           cache-to: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
 
-      # - name: Build
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     load: true
-      #     tags: ${{ env.repository }}:${{ env.image-tag }}
-      #     cache-from: type=registry,ref=${{ env.repository }}:${{ env.image-tag }}-cache
-
       - name: debug
         run: |
           docker images
